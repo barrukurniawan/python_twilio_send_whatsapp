@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Twilio Kirim WA</title>
+  <style>
+    /*body {*/
+    /*  margin: 0;*/
+    /*  padding: 0;*/
+    /*  font-family: sans-serif;*/
+    /*  background: url(http://promac.epizy.com/login.jpg);*/
+    /*  background-size: cover;*/
+    /*}*/
+    .box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      padding: 50px;
+      background: rgba(0, 0, 0, 0.8);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+    .box h1 {
+      margin: 0 0 25px;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+    }
+    .box .inputBox {
+      position: relative;
+    }
+    .box .inputBox input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
+    .box .inputBox label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      letter-spacing: 1px;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: 0.5s;
+    }
+    .box .inputBox input:focus ~ label,
+    .box .inputBox input:valid ~ label {
+      top: -18px;
+      left: 0;
+      color: #03a9f4;
+      font-size: 12px;
+    }
+    .register {
+      color: #03a9f4;
+    }
+    .box input[type="submit"] {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      background: #03a9f4;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    a {
+      color: #fff;
+      margin-left: 2%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1 align="center">Kirim Whatsapp Form</h1>
+    <form action="" role="form" method="post">
+
+      <div class="inputBox">
+        <input type="text" name="account_sid" autocomplete="off" value="{{
+          request.form.account_sid }}" required>
+        <label>Account SID</label>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="auth_token" autocomplete="off" value="{{
+          request.form.auth_token }}" required>
+        <label>Auth Token</label>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="from_wa" autocomplete="off" value="{{
+          request.form.from_wa }}" required>
+        <label>No. WA Bot Twilio</label>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="to_wa" autocomplete="off" value="{{
+          request.form.to_wa }}" required>
+        <label>No. WA User</label>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="body_message" autocomplete="off" value="{{
+          request.form.body_message }}" required>
+        <label>Pesan WA</label>
+      </div>
+
+      <div style="text-align:center;">
+        <input type="submit" name="login" value="Send WA">
+      </div>
+
+      <!--<a href="http://promac.epizy.com/" px;target="_blank">Visit My Website</a>-->
+
+    </form>
+
+  </div>
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+    {% endif %}
+
+    {% for comment in comments %}
+         <p class="error"><strong>Error:</strong> {{ comment }}
+    {% endfor %}
+</body>
+
+</html>
